@@ -8,10 +8,6 @@
 import Foundation
 import Combine
 
-enum HTTPMethod: String {
-    case post = "POST"
-    case get = "GET"
-}
 
 protocol Networking: BaseService {
     func performRequest<T: Codable>(url: URL, method: HTTPMethod, parameters: [String: String]?, headers: [String: String]?) -> AnyPublisher<T, NetworkErrorResponse>

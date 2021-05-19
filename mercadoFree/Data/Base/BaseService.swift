@@ -12,6 +12,11 @@ protocol BaseService {
     func printResponse<T>(response: T)
 }
 
+enum HTTPMethod: String {
+    case post = "POST"
+    case get = "GET"
+}
+
 enum NetworkErrorResponse: LocalizedError, Equatable {
     case error2xx(code: Int)
     case badRequest
