@@ -11,32 +11,58 @@ import Combine
 
 protocol Networking: BaseService {
     func performRequest<T: Codable>(url: URL, method: HTTPMethod, parameters: [String: String]?, headers: [String: String]?) -> AnyPublisher<T, NetworkErrorResponse>
+    func performRequestData(url: URL, method: HTTPMethod, parameters: [String: String]?, headers: [String: String]?) -> AnyPublisher<Data, NetworkErrorResponse>
 }
 
 class NetworkService: Networking {
     
+    func performRequestData(url: URL, method: HTTPMethod, parameters: [String : String]?, headers: [String : String]?) -> AnyPublisher<Data, NetworkErrorResponse> {
+        
+        guard let request = getUrlRequest(url: url, method: method, parameters: parameters, headers: headers) else {
+            let error = NetworkErrorResponse.unableToMakeRequest
+            self.printError(with: error)
+            return Fail.init(error: error).eraseToAnyPublisher()
+        }
+
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap() { element -> Data in
+                guard let response = element.response as? HTTPURLResponse else {
+                    let error = NetworkErrorResponse.invalidHttpResponse
+                    self.printError(with: error)
+                    throw error
+                }
+                guard response.statusCode == 200 else {
+                    let error = self.handleErrorResponse(withCode: response.statusCode)
+                    self.printError(with: error)
+                    throw error
+                }
+                return element.data
+            }
+            .mapError({ error in
+                switch error {
+                case let error as NetworkErrorResponse:
+                    return error
+                default:
+                    return NetworkErrorResponse.notNetworkErrorResponse
+                }
+            })
+            .eraseToAnyPublisher()
+    }
+    
     func performRequest<T>(url: URL, method: HTTPMethod, parameters: [String : String]?, headers: [String : String]?) -> AnyPublisher<T, NetworkErrorResponse> where T : Decodable, T : Encodable {
         
-        var urlComponent = URLComponents(string: url.absoluteString)
-        
-        if let parameters = parameters {
-            parameters.forEach { (key, value) in
-                urlComponent?.queryItems?.append(URLQueryItem(name: key, value: value))
-            }
+        guard let request = getUrlRequest(url: url, method: method, parameters: parameters, headers: headers) else {
+            let error = NetworkErrorResponse.unableToMakeRequest
+            self.printError(with: error)
+            return Fail.init(error: error).eraseToAnyPublisher()
         }
+        Logger.shared.log(from: self, with:.debug, message: "Making request to \(request.url?.absoluteString ?? "")")
         
-        guard let urlWithParams = urlComponent?.url else { return Fail.init(error: NetworkErrorResponse.unableToMakeRequest).eraseToAnyPublisher() }
-        
-        var request = URLRequest(url: urlWithParams)
-        request.httpMethod = method.rawValue
-        if let headers = headers {
-            headers.forEach { (key, value) in
-                request.addValue(value, forHTTPHeaderField: key)
-            }
-        }
-        
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .iso8601
+                
         return URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap( { data, response  in
+            .tryMap( { data, response  in                            
                 guard let response = response as? HTTPURLResponse else {
                     let error = NetworkErrorResponse.invalidHttpResponse
                     self.printError(with: error)
@@ -50,9 +76,12 @@ class NetworkService: Networking {
                 self.printResponse(response: data)
                 return data
             })
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: T.self, decoder: jsonDecoder)
             .mapError({ error in
                 switch error {
+                case let error as Swift.DecodingError:
+                    print("\(error)")
+                    return NetworkErrorResponse.decodingError
                 case let error as NetworkErrorResponse:
                     return error
                 default:
@@ -62,8 +91,29 @@ class NetworkService: Networking {
             .eraseToAnyPublisher()
     }
     
+    func getUrlRequest(url: URL, method: HTTPMethod, parameters: [String : String]?, headers: [String : String]?) -> URLRequest? {
+        var urlComponent = URLComponents(string: url.absoluteString)
+        
+        if let parameters = parameters {
+            parameters.forEach { (key, value) in
+                urlComponent?.queryItems?.append(URLQueryItem(name: key, value: value))
+            }
+        }
+    
+        guard let urlWithParams = urlComponent?.url else { return nil }
+        
+        var request = URLRequest(url: urlWithParams)
+        request.httpMethod = method.rawValue
+        if let headers = headers {
+            headers.forEach { (key, value) in
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
+        return request
+    }
+    
     func printError(with error: NetworkErrorResponse) {
-        Logger.shared.log(from: self, with: .error, message: "\(error.localizedDescription) :: \(error.errorDescription ?? "")")
+        Logger.shared.log(from: self, with: .error, message: "\(error.failureReason ?? "") - \(error.localizedDescription)")
     }
     
     func printResponse<T>(response: T) {
