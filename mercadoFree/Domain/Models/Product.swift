@@ -41,7 +41,7 @@ struct Product: Codable {
         case installments
     }
     
-    init(with id: String )  {
+    init(with id: String, thumbnail: String) {
         self.id = id
         self.title = "Title"
         self.price = 2000
@@ -49,7 +49,7 @@ struct Product: Codable {
         self.availableQuantity = 10
         self.soldQuantity = 1
         self.condition = "New"
-        self.thumbnail = ""
+        self.thumbnail = thumbnail
         self.acceptsMercadopago = true
         self.installments = Installments()
     }

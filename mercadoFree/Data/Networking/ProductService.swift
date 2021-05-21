@@ -36,7 +36,6 @@ class ProductService: ProductRepository {
                 let productWithImage = ProductWithImage(product: product, image: data)
                 return productWithImage
             }.eraseToAnyPublisher()
-            
         }.collect()
         
         return newPublisher.eraseToAnyPublisher()
