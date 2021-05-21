@@ -10,7 +10,7 @@ import Combine
 
 class ProductService: ProductRepository {
     
-    private let service: NetworkService
+    private let service: Networking
     
     init() {
         self.service = NetworkService()
@@ -22,7 +22,6 @@ class ProductService: ProductRepository {
             return Fail.init(error: NetworkErrorResponse.unableToMakeRequest).eraseToAnyPublisher()
         }
         let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : query], headers: nil)
-        
         
         let newPublisher = anyPublisher.map { results in
             results.results

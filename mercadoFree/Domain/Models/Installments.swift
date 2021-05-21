@@ -11,4 +11,10 @@ struct Installments: Codable {
     let quantity: Int
     let amount: Double
     let rate: Int
+    
+    init() {
+        self.quantity = 36
+        self.amount = 1
+        self.rate = 1
+    }
 }

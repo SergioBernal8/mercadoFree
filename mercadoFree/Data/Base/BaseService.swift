@@ -17,7 +17,7 @@ enum HTTPMethod: String {
     case get = "GET"
 }
 
-enum NetworkErrorResponse: LocalizedError {
+enum NetworkErrorResponse: LocalizedError, Equatable {
     case error2xx(code: Int)
     case badRequest
     case unauthorized

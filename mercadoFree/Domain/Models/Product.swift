@@ -12,7 +12,7 @@ struct Product: Codable {
     let id: String
     let title: String
     let price: Double
-    let prices: prices?
+    let prices: Prices?
     let availableQuantity: Double
     let soldQuantity: Double
     let condition: String
@@ -20,8 +20,12 @@ struct Product: Codable {
     let acceptsMercadopago: Bool
     let installments: Installments
     
-    struct prices: Codable {
+    struct Prices: Codable {
         let prices: [Price]
+        
+        init()  {
+            self.prices = []
+        }
     }
     
     enum CodingKeys: String, CodingKey {
@@ -35,5 +39,18 @@ struct Product: Codable {
         case thumbnail
         case acceptsMercadopago = "accepts_mercadopago"
         case installments
+    }
+    
+    init(with id: String )  {
+        self.id = id
+        self.title = "Title"
+        self.price = 2000
+        self.prices = Prices()
+        self.availableQuantity = 10
+        self.soldQuantity = 1
+        self.condition = "New"
+        self.thumbnail = ""
+        self.acceptsMercadopago = true
+        self.installments = Installments()
     }
 }

@@ -10,7 +10,7 @@ import Combine
 
 
 protocol Networking: BaseService {
-    func performRequest<T: Codable>(url: URL, method: HTTPMethod, parameters: [String: String]?, headers: [String: String]?) -> AnyPublisher<T, NetworkErrorResponse>
+    func performRequest<T>(url: URL, method: HTTPMethod, parameters: [String: String]?, headers: [String: String]?) -> AnyPublisher<T, NetworkErrorResponse> where T : Decodable, T : Encodable
     func performRequestData(url: URL, method: HTTPMethod, parameters: [String: String]?, headers: [String: String]?) -> AnyPublisher<Data, NetworkErrorResponse>
 }
 
@@ -79,8 +79,7 @@ class NetworkService: Networking {
             .decode(type: T.self, decoder: jsonDecoder)
             .mapError({ error in
                 switch error {
-                case let error as Swift.DecodingError:
-                    print("\(error)")
+                case _ as Swift.DecodingError:
                     return NetworkErrorResponse.decodingError
                 case let error as NetworkErrorResponse:
                     return error
