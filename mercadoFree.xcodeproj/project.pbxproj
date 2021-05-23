@@ -16,7 +16,6 @@
 		B80675542656ACC10016FBCF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80675532656ACC10016FBCF /* APIConstants.swift */; };
 		B817C7C02654220300462265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7BF2654220300462265 /* AppDelegate.swift */; };
 		B817C7C22654220300462265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7C12654220300462265 /* SceneDelegate.swift */; };
-		B817C7C42654220300462265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7C32654220300462265 /* ViewController.swift */; };
 		B817C7C72654220300462265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B817C7C52654220300462265 /* Main.storyboard */; };
 		B817C7C92654220600462265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B817C7C82654220600462265 /* Assets.xcassets */; };
 		B817C7CC2654220600462265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B817C7CA2654220600462265 /* LaunchScreen.storyboard */; };
@@ -30,6 +29,11 @@
 		B8C0151C2657F3F9009684CD /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C0151B2657F3F9009684CD /* MockNetworkService.swift */; };
 		B8C0151F2657FE86009684CD /* MockProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C0151E2657FE86009684CD /* MockProductService.swift */; };
 		B8C01524265850BF009684CD /* MockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C01523265850BF009684CD /* MockObject.swift */; };
+		B8DE625C265AABD700AA7A6C /* MainViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE625B265AABD700AA7A6C /* MainViewControllerPresenter.swift */; };
+		B8DE625E265AAC6000AA7A6C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE625D265AAC6000AA7A6C /* MainViewController.swift */; };
+		B8DE6261265ABAB200AA7A6C /* ProductForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6260265ABAB200AA7A6C /* ProductForCell.swift */; };
+		B8DE6264265AC3EF00AA7A6C /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6263265AC3EF00AA7A6C /* SpinnerViewController.swift */; };
+		B8DE6269265ACE0F00AA7A6C /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6268265ACE0F00AA7A6C /* ProductTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +64,6 @@
 		B817C7BC2654220300462265 /* mercadoFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mercadoFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B817C7BF2654220300462265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B817C7C12654220300462265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B817C7C32654220300462265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B817C7C62654220300462265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B817C7C82654220600462265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B817C7CB2654220600462265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +82,11 @@
 		B8C0151B2657F3F9009684CD /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		B8C0151E2657FE86009684CD /* MockProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductService.swift; sourceTree = "<group>"; };
 		B8C01523265850BF009684CD /* MockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObject.swift; sourceTree = "<group>"; };
+		B8DE625B265AABD700AA7A6C /* MainViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerPresenter.swift; sourceTree = "<group>"; };
+		B8DE625D265AAC6000AA7A6C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B8DE6260265ABAB200AA7A6C /* ProductForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductForCell.swift; sourceTree = "<group>"; };
+		B8DE6263265AC3EF00AA7A6C /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		B8DE6268265ACE0F00AA7A6C /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 				B806754B2655A4C80016FBCF /* Installments.swift */,
 				B806754F2656AB280016FBCF /* ProductWithImage.swift */,
 				B8C0151626570685009684CD /* Results.swift */,
+				B8DE6260265ABAB200AA7A6C /* ProductForCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,7 +156,6 @@
 				B817C7F126542ED600462265 /* UI */,
 				B817C7BF2654220300462265 /* AppDelegate.swift */,
 				B817C7C12654220300462265 /* SceneDelegate.swift */,
-				B817C7C32654220300462265 /* ViewController.swift */,
 				B817C7C52654220300462265 /* Main.storyboard */,
 				B817C7C82654220600462265 /* Assets.xcassets */,
 				B817C7CA2654220600462265 /* LaunchScreen.storyboard */,
@@ -197,6 +205,8 @@
 		B817C7F126542ED600462265 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B8DE6262265AC3D500AA7A6C /* Custom */,
+				B8DE625A265AABB400AA7A6C /* Main */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -251,6 +261,32 @@
 				B8C01523265850BF009684CD /* MockObject.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		B8DE625A265AABB400AA7A6C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B8DE6267265ACDE800AA7A6C /* Cell */,
+				B8DE625B265AABD700AA7A6C /* MainViewControllerPresenter.swift */,
+				B8DE625D265AAC6000AA7A6C /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B8DE6262265AC3D500AA7A6C /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B8DE6263265AC3EF00AA7A6C /* SpinnerViewController.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		B8DE6267265ACDE800AA7A6C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B8DE6268265ACE0F00AA7A6C /* ProductTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,11 +421,15 @@
 			files = (
 				B806754C2655A4C80016FBCF /* Installments.swift in Sources */,
 				B806754E2655ACEC0016FBCF /* ProductRepository.swift in Sources */,
+				B8DE6269265ACE0F00AA7A6C /* ProductTableViewCell.swift in Sources */,
+				B8DE625C265AABD700AA7A6C /* MainViewControllerPresenter.swift in Sources */,
 				B80675542656ACC10016FBCF /* APIConstants.swift in Sources */,
-				B817C7C42654220300462265 /* ViewController.swift in Sources */,
+				B8DE625E265AAC6000AA7A6C /* MainViewController.swift in Sources */,
 				B817C7FB2654535F00462265 /* Logger.swift in Sources */,
+				B8DE6261265ABAB200AA7A6C /* ProductForCell.swift in Sources */,
 				B817C7FF265455BC00462265 /* NetworkService.swift in Sources */,
 				B80675522656ABBB0016FBCF /* ProductService.swift in Sources */,
+				B8DE6264265AC3EF00AA7A6C /* SpinnerViewController.swift in Sources */,
 				B817C7FD2654556A00462265 /* BaseService.swift in Sources */,
 				B817C7C02654220300462265 /* AppDelegate.swift in Sources */,
 				B80675502656AB280016FBCF /* ProductWithImage.swift in Sources */,

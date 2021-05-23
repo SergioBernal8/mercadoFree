@@ -21,7 +21,7 @@ class ProductService: ProductRepository {
             Logger.shared.log(from: self, with: .error, message: "Unable to make request")
             return Fail.init(error: NetworkErrorResponse.unableToMakeRequest).eraseToAnyPublisher()
         }
-        let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : query], headers: nil)
+        let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : query,"limit":"10"], headers: nil)
         
         let newPublisher = anyPublisher.map { results in
             results.results

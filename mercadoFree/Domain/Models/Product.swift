@@ -21,7 +21,7 @@ struct Product: Codable {
     let installments: Installments
     
     struct Prices: Codable {
-        let prices: [Price]
+        let prices: [Price]?
         
         init()  {
             self.prices = []

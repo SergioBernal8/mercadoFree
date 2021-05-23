@@ -79,7 +79,8 @@ class NetworkService: Networking {
             .decode(type: T.self, decoder: jsonDecoder)
             .mapError({ error in
                 switch error {
-                case _ as Swift.DecodingError:
+                case let error as Swift.DecodingError:                    
+                    self.printError(with: error)
                     return NetworkErrorResponse.decodingError
                 case let error as NetworkErrorResponse:
                     return error
@@ -113,6 +114,10 @@ class NetworkService: Networking {
     
     func printError(with error: NetworkErrorResponse) {
         Logger.shared.log(from: self, with: .error, message: "\(error.failureReason ?? "") - \(error.localizedDescription)")
+    }
+    
+    func printError(with error: DecodingError) {
+        Logger.shared.log(from: self, with: .error, message: "\(error.localizedDescription)")
     }
     
     func printResponse<T>(response: T) {
