@@ -11,17 +11,28 @@ import Combine
 class ProductService: ProductRepository {
     
     private let service: Networking
+    private var currentOffset = 0
+    private var lastQuery = ""
     
     init() {
         self.service = NetworkService()
     }
     
     func getProducts(for query: String) -> AnyPublisher<[ProductWithImage], NetworkErrorResponse> {
+        var queryText = query
+        
+        if currentOffset > 0 {
+            queryText = lastQuery
+        } else {
+            lastQuery = queryText
+            currentOffset = 0
+        }
+      
         guard let url = URL(string: APIConstants.baseUrl + APIConstants.queryPath) else {
             Logger.shared.log(from: self, with: .error, message: "Unable to make request")
             return Fail.init(error: NetworkErrorResponse.unableToMakeRequest).eraseToAnyPublisher()
         }
-        let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : query,"limit":"10"], headers: nil)
+        let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : queryText,"limit":"10", "offset":"\(currentOffset)"], headers: nil)
         
         let newPublisher = anyPublisher.map { results in
             results.results
@@ -37,6 +48,8 @@ class ProductService: ProductRepository {
                 return productWithImage
             }.eraseToAnyPublisher()
         }.collect()
+        
+        currentOffset += 10
         
         return newPublisher.eraseToAnyPublisher()
     }

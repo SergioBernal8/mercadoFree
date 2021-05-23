@@ -10,12 +10,13 @@ import Combine
 
 protocol MainViewControllerPresenterInterface {
     func getProductsForQuery(query: String)
+    func getNextProducts()
     func getProductCount() -> Int
     func getProduct(for index: Int) -> ProductForCell
 }
 
 class MainViewControllerPresenter: MainViewControllerPresenterInterface {
-        
+            
     weak var viewInterface: MainViewControllerInterface?
     private var productRepository: ProductRepository
     private var allProducts = [ProductForCell]()
@@ -26,20 +27,10 @@ class MainViewControllerPresenter: MainViewControllerPresenterInterface {
         self.viewInterface = viewInterface
         self.productRepository = productRepository
     }
-}
-
-// MARK: MainViewControllerPresenterInterface
-
-extension MainViewControllerPresenter {
     
-    
-    func getProductsForQuery(query: String) {
-        guard !query.isEmpty, !query.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-            self.viewInterface?.displayErrorAlert(with: "Query must no be empty")
-            return
-        }
+    func makeProductsRequest(for query: String) {
         
-        self.viewInterface?.displayLoadingIndicator()        
+        self.viewInterface?.displayLoadingIndicator()
         productRepository.getProducts(for: query).receive(on: DispatchQueue.main)
             .sink { [weak self] response in
             guard let self = self else { return }
@@ -58,9 +49,28 @@ extension MainViewControllerPresenter {
                 self.viewInterface?.displayErrorAlert(with: message)
             }
         } receiveValue: { products in
-            self.allProducts = products.map{ ProductForCell(productWithImage: $0) }
+            self.allProducts.append(contentsOf: products.map{ ProductForCell(productWithImage: $0) })
             self.viewInterface?.displayProducts()
         }.store(in: &cancellables)
+    }
+}
+
+// MARK: MainViewControllerPresenterInterface
+
+extension MainViewControllerPresenter {
+    
+    
+    func getNextProducts() {
+        makeProductsRequest(for: "")
+    }
+    
+    func getProductsForQuery(query: String) {
+        guard !query.isEmpty, !query.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+            self.viewInterface?.displayErrorAlert(with: "Query must no be empty")
+            return
+        }
+        self.allProducts.removeAll()
+        makeProductsRequest(for: query)
     }
     
     func getProductCount() -> Int { allProducts.count }

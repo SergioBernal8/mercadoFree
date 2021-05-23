@@ -85,6 +85,7 @@ extension MainViewController: UITableViewDataSource {
         }
         return UITableViewCell()
     }
+
 }
 
 // MARK: UITableViewDelegate
@@ -93,6 +94,12 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Go to product details
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (presenter?.getProductCount() ?? 0) - 1 == indexPath.row {
+            presenter?.getNextProducts()
+        }
     }
 }
 

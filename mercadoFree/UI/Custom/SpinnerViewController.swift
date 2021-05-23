@@ -15,7 +15,7 @@ class SpinnerViewController: UIViewController {
     override func viewDidLoad() {
         
         view.backgroundColor = .white.withAlphaComponent(0.8)
-        spinner.color = .blue
+        spinner.color = .systemBlue
         spinner.center = view.center
         view.addSubview(spinner)
         spinner.startAnimating()
