@@ -19,6 +19,7 @@ struct Product: Codable {
     let thumbnail: String
     let acceptsMercadopago: Bool
     let installments: Installments?
+    let permalink: String
     
     struct Prices: Codable {
         let prices: [Price]?
@@ -39,6 +40,7 @@ struct Product: Codable {
         case thumbnail
         case acceptsMercadopago = "accepts_mercadopago"
         case installments
+        case permalink
     }
     
     init(with id: String, thumbnail: String) {
@@ -52,5 +54,6 @@ struct Product: Codable {
         self.thumbnail = thumbnail
         self.acceptsMercadopago = true
         self.installments = Installments()
+        self.permalink = thumbnail
     }
 }

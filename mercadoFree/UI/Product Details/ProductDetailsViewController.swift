@@ -33,10 +33,21 @@ class ProductDetailsViewController: UIViewController, ProductDetailsViewControll
         productDetailsTableView.estimatedRowHeight = cellRowHeight
         productDetailsTableView.rowHeight = cellRowHeight
         
+        productImageView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        productImageView.addGestureRecognizer(gesture)
+        
         if let product = product {
             productImageView.image = UIImage(data: product.productWithImage.image)
             productDetailsTableView.register(UINib(nibName: "ProductDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductDetailsTableViewCell")
             presenter?.mapProductValues(for: product)            
+        }
+        
+    }
+    
+    @IBAction private func didTapImage() {
+        if let url = URL(string: product?.productWithImage.product.permalink ?? "") {
+            UIApplication.shared.open(url)
         }
     }
 }
