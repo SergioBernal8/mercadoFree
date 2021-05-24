@@ -29,11 +29,18 @@ class MainViewController: UIViewController, MainViewControllerInterface {
         presenter = MainViewControllerPresenter(viewInterface: self, productRepository: ProductService())
        
         view.backgroundColor = .yellow
+        navigationController?.navigationBar.tintColor = .black
         searchController.searchBar.backgroundColor = .yellow
         searchController.searchBar.placeholder = "Search in MercadoFree"
         searchController.searchBar.delegate = self        
         
         navigationItem.searchController = searchController
+    }
+    
+    func goToDetails(product: ProductForCell) {
+        let controller = ProductDetailsViewController()
+        controller.product = product        
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -81,6 +88,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell {
             cell.prodcutForCell = presenter?.getProduct(for: indexPath.row)
+            cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()
@@ -93,7 +101,9 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Go to product details
+        if let product = presenter?.getProduct(for: indexPath.row) {
+            goToDetails(product: product)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -29,6 +29,18 @@ struct ProductForCell {
         }
     }
     
+    var quantity: String {
+        get {
+            return "Available quantity: \(productWithImage.product.availableQuantity)"
+        }
+    }
+    
+    var condition: String {
+        get {
+            return  "Condition: " + productWithImage.product.condition.capitalized
+        }
+    }
+    
     private func getFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
