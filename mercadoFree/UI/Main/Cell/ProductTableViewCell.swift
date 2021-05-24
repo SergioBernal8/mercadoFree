@@ -27,7 +27,7 @@ class ProductTableViewCell: UITableViewCell {
     func setUpCell() {
         productTitleLabel.text = prodcutForCell?.productWithImage.product.title
         productPriceLabel.text = prodcutForCell?.formattedPrice
-        
+        productInstallmentsLabel.text = prodcutForCell?.installmentText
         if let data = prodcutForCell?.productWithImage.image {
             productImageView.image = UIImage(data: data)
         }

@@ -18,7 +18,7 @@ struct Product: Codable {
     let condition: String
     let thumbnail: String
     let acceptsMercadopago: Bool
-    let installments: Installments
+    let installments: Installments?
     
     struct Prices: Codable {
         let prices: [Price]?

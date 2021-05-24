@@ -59,7 +59,6 @@ class MainViewControllerPresenter: MainViewControllerPresenterInterface {
 
 extension MainViewControllerPresenter {
     
-    
     func getNextProducts() {
         makeProductsRequest(for: "")
     }

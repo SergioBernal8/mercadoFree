@@ -19,15 +19,13 @@ class ProductService: ProductRepository {
     }
     
     func getProducts(for query: String) -> AnyPublisher<[ProductWithImage], NetworkErrorResponse> {
-        var queryText = query
-        
-        if currentOffset > 0 {
-            queryText = lastQuery
-        } else {
-            lastQuery = queryText
+                
+        if !query.isEmpty {
             currentOffset = 0
+            lastQuery = query
         }
-      
+        let queryText = lastQuery
+        
         guard let url = URL(string: APIConstants.baseUrl + APIConstants.queryPath) else {
             Logger.shared.log(from: self, with: .error, message: "Unable to make request")
             return Fail.init(error: NetworkErrorResponse.unableToMakeRequest).eraseToAnyPublisher()

@@ -44,7 +44,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Installments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or2-kg-kaH">
-                                                    <rect key="frame" x="148" y="125" width="246" height="30"/>
+                                                    <rect key="frame" x="148" y="113" width="246" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="gIw-kJ-bas"/>
                                                     </constraints>
@@ -53,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRY-K0-Y1T">
-                                                    <rect key="frame" x="148" y="83" width="246" height="30"/>
+                                                    <rect key="frame" x="148" y="77" width="246" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="1rM-Ec-7nX"/>
                                                     </constraints>
@@ -68,13 +68,13 @@
                                                 <constraint firstItem="SOv-X5-vsr" firstAttribute="top" secondItem="fCT-Eh-ssB" secondAttribute="topMargin" id="38e-f2-tY8"/>
                                                 <constraint firstItem="ufV-gG-6RP" firstAttribute="leading" secondItem="SOv-X5-vsr" secondAttribute="trailing" constant="8" id="6Ue-Ta-dK4"/>
                                                 <constraint firstItem="SOv-X5-vsr" firstAttribute="leading" secondItem="fCT-Eh-ssB" secondAttribute="leadingMargin" id="Bza-rH-aQr"/>
-                                                <constraint firstItem="PRY-K0-Y1T" firstAttribute="top" secondItem="ufV-gG-6RP" secondAttribute="bottom" constant="12" id="ChL-ZF-sxj"/>
+                                                <constraint firstItem="PRY-K0-Y1T" firstAttribute="top" secondItem="ufV-gG-6RP" secondAttribute="bottom" constant="6" id="ChL-ZF-sxj"/>
                                                 <constraint firstItem="ufV-gG-6RP" firstAttribute="top" secondItem="fCT-Eh-ssB" secondAttribute="topMargin" id="PLP-b7-ype"/>
                                                 <constraint firstItem="or2-kg-kaH" firstAttribute="leading" secondItem="SOv-X5-vsr" secondAttribute="trailing" constant="8" id="RBb-vi-PNa"/>
                                                 <constraint firstItem="ufV-gG-6RP" firstAttribute="trailing" secondItem="fCT-Eh-ssB" secondAttribute="trailingMargin" id="SI1-on-CS3"/>
                                                 <constraint firstItem="PRY-K0-Y1T" firstAttribute="trailing" secondItem="fCT-Eh-ssB" secondAttribute="trailingMargin" id="Ss1-OS-kVJ"/>
                                                 <constraint firstItem="or2-kg-kaH" firstAttribute="trailing" secondItem="fCT-Eh-ssB" secondAttribute="trailingMargin" id="T51-jI-axg"/>
-                                                <constraint firstItem="or2-kg-kaH" firstAttribute="top" secondItem="PRY-K0-Y1T" secondAttribute="bottom" constant="12" id="yBF-sJ-mvx"/>
+                                                <constraint firstItem="or2-kg-kaH" firstAttribute="top" secondItem="PRY-K0-Y1T" secondAttribute="bottom" constant="6" id="yBF-sJ-mvx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

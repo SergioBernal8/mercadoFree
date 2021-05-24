@@ -13,12 +13,27 @@ struct ProductForCell {
     
     var formattedPrice: String {
         get {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            formatter.maximumFractionDigits = 0
-            formatter.currencySymbol = "$"
-            guard let fomatted = formatter.string(from: productWithImage.product.price as NSNumber) else { return "$\(productWithImage.product.price)" }
+            guard let fomatted = getFormatter().string(from: productWithImage.product.price as NSNumber) else { return "$\(productWithImage.product.price)" }
             return fomatted
         }
+    }
+    
+    var installmentText: String {
+        get {
+            guard let installments = productWithImage.product.installments else { return "" }
+            
+            guard let formatted = getFormatter().string(from: installments.amount as NSNumber) else { return "$\(installments.amount)" }
+            
+            let text = "In " + "\(installments.quantity)x " + formatted
+            return text
+        }
+    }
+    
+    private func getFormatter() -> NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        formatter.currencySymbol = "$"
+        return formatter
     }
 }
