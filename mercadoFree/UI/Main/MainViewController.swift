@@ -32,8 +32,9 @@ class MainViewController: UIViewController, MainViewControllerInterface {
         navigationController?.navigationBar.tintColor = .black
         searchController.searchBar.backgroundColor = .yellow
         searchController.searchBar.placeholder = "Search in MercadoFree"
-        searchController.searchBar.delegate = self        
-        
+        searchController.searchBar.delegate = self
+        searchController.searchBar.searchTextField.backgroundColor = .white
+                        
         navigationItem.searchController = searchController
     }
     

@@ -24,9 +24,25 @@
                     <rect key="frame" x="87" y="58" width="240" height="267"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="width" secondItem="pIo-du-RfO" secondAttribute="height" multiplier="80:89" id="6bo-Fi-Zsy"/>
                         <constraint firstAttribute="height" constant="267" id="Qdk-mS-EMT"/>
+                        <constraint firstAttribute="height" constant="267" id="ZPQ-Ps-fjf"/>
                         <constraint firstAttribute="width" secondItem="pIo-du-RfO" secondAttribute="height" multiplier="80:89" id="xcv-Gd-Vd1"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="6bo-Fi-Zsy"/>
+                            <exclude reference="ZPQ-Ps-fjf"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=compact">
+                        <mask key="constraints">
+                            <include reference="6bo-Fi-Zsy"/>
+                            <exclude reference="Qdk-mS-EMT"/>
+                            <include reference="ZPQ-Ps-fjf"/>
+                            <exclude reference="xcv-Gd-Vd1"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="txh-lA-IaO">
                     <rect key="frame" x="20" y="357" width="374" height="505"/>
@@ -41,14 +57,46 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="pIo-du-RfO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1KT-qd-VBd"/>
                 <constraint firstItem="pIo-du-RfO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="14" id="4Sq-4q-fBz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="txh-lA-IaO" secondAttribute="trailing" constant="20" id="RL8-ob-Qih"/>
+                <constraint firstItem="pIo-du-RfO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="aEF-OY-Ml7"/>
                 <constraint firstItem="txh-lA-IaO" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="cgP-Sc-KHC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="txh-lA-IaO" secondAttribute="trailing" constant="16" id="iLC-hv-xKg"/>
                 <constraint firstItem="txh-lA-IaO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="jlj-VJ-hKr"/>
+                <constraint firstItem="txh-lA-IaO" firstAttribute="top" secondItem="pIo-du-RfO" secondAttribute="top" id="kcH-I3-SQN"/>
                 <constraint firstItem="txh-lA-IaO" firstAttribute="top" secondItem="pIo-du-RfO" secondAttribute="bottom" constant="32" id="oDI-jz-6eX"/>
+                <constraint firstItem="txh-lA-IaO" firstAttribute="leading" secondItem="pIo-du-RfO" secondAttribute="trailing" constant="22" id="puD-hJ-IFS"/>
                 <constraint firstItem="pIo-du-RfO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qpT-bI-CpU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="txh-lA-IaO" secondAttribute="bottom" id="wNm-JI-bTb"/>
             </constraints>
-            <point key="canvasLocation" x="92.753623188405811" y="51.5625"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="iLC-hv-xKg"/>
+                    <exclude reference="wNm-JI-bTb"/>
+                    <exclude reference="1KT-qd-VBd"/>
+                    <exclude reference="aEF-OY-Ml7"/>
+                    <exclude reference="kcH-I3-SQN"/>
+                    <exclude reference="puD-hJ-IFS"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact">
+                <mask key="constraints">
+                    <exclude reference="RL8-ob-Qih"/>
+                    <include reference="iLC-hv-xKg"/>
+                    <include reference="wNm-JI-bTb"/>
+                    <include reference="1KT-qd-VBd"/>
+                    <exclude reference="4Sq-4q-fBz"/>
+                    <include reference="aEF-OY-Ml7"/>
+                    <exclude reference="qpT-bI-CpU"/>
+                    <exclude reference="cgP-Sc-KHC"/>
+                    <exclude reference="jlj-VJ-hKr"/>
+                    <include reference="kcH-I3-SQN"/>
+                    <exclude reference="oDI-jz-6eX"/>
+                    <include reference="puD-hJ-IFS"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="92.410714285714278" y="50.724637681159422"/>
         </view>
     </objects>
     <resources>
