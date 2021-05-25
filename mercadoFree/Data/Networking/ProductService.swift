@@ -24,13 +24,12 @@ class ProductService: ProductRepository {
             currentOffset = 0
             lastQuery = query
         }
-        let queryText = lastQuery
         
         guard let url = URL(string: APIConstants.baseUrl + APIConstants.queryPath) else {
             Logger.shared.log(from: self, with: .error, message: "Unable to make request")
             return Fail.init(error: NetworkErrorResponse.unableToMakeRequest).eraseToAnyPublisher()
         }
-        let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : queryText,"limit":"10", "offset":"\(currentOffset)"], headers: nil)
+        let anyPublisher: AnyPublisher<Results, NetworkErrorResponse> = service.performRequest(url: url, method: HTTPMethod.get, parameters: ["q" : lastQuery,"limit":"10", "offset":"\(currentOffset)"], headers: nil)
         
         let newPublisher = anyPublisher.map { results in
             results.results

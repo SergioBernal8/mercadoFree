@@ -14,7 +14,7 @@ protocol ProductDetailsViewControllerInterface: AnyObject {
 }
 
 class ProductDetailsViewController: UIViewController, ProductDetailsViewControllerInterface {
-        
+    
     var presenter: ProductDetailsViewControllerPresenterInterface?
     var product: ProductForCell?
     
@@ -37,12 +37,13 @@ class ProductDetailsViewController: UIViewController, ProductDetailsViewControll
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
         productImageView.addGestureRecognizer(gesture)
         
-        if let product = product {
-            productImageView.image = UIImage(data: product.productWithImage.image)
+        if let productData = product {
             productDetailsTableView.register(UINib(nibName: "ProductDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductDetailsTableViewCell")
-            presenter?.mapProductValues(for: product)            
+            presenter?.mapProductValues(for: productData)
         }
-        
+        if let image = product?.productWithImage.image {
+            productImageView.image = UIImage(data: image)
+        }
     }
     
     @IBAction private func didTapImage() {

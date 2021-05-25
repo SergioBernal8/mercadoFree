@@ -9,5 +9,5 @@ import Foundation
 
 struct ProductWithImage {
     let product: Product
-    let image: Data
+    let image: Data?
 }

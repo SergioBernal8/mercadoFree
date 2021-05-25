@@ -19,11 +19,12 @@
 		B817C7C72654220300462265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B817C7C52654220300462265 /* Main.storyboard */; };
 		B817C7C92654220600462265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B817C7C82654220600462265 /* Assets.xcassets */; };
 		B817C7CC2654220600462265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B817C7CA2654220600462265 /* LaunchScreen.storyboard */; };
-		B817C7D72654220600462265 /* mercadoFreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7D62654220600462265 /* mercadoFreeTests.swift */; };
 		B817C7E22654220700462265 /* mercadoFreeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7E12654220700462265 /* mercadoFreeUITests.swift */; };
 		B817C7FB2654535F00462265 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7FA2654535F00462265 /* Logger.swift */; };
 		B817C7FD2654556A00462265 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7FC2654556A00462265 /* BaseService.swift */; };
 		B817C7FF265455BC00462265 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C7FE265455BC00462265 /* NetworkService.swift */; };
+		B84A5CCA265D309A00CF6D9A /* ProductDetailsViewControllerPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A5CC9265D309A00CF6D9A /* ProductDetailsViewControllerPresenterTest.swift */; };
+		B84A5CCC265D31E200CF6D9A /* MainViewControllerPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A5CCB265D31E200CF6D9A /* MainViewControllerPresenterTest.swift */; };
 		B8C0151726570685009684CD /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C0151626570685009684CD /* Results.swift */; };
 		B8C015192657F3B4009684CD /* NetworkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C015182657F3B4009684CD /* NetworkingTest.swift */; };
 		B8C0151C2657F3F9009684CD /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C0151B2657F3F9009684CD /* MockNetworkService.swift */; };
@@ -74,7 +75,6 @@
 		B817C7CB2654220600462265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B817C7CD2654220600462265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B817C7D22654220600462265 /* mercadoFreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mercadoFreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B817C7D62654220600462265 /* mercadoFreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mercadoFreeTests.swift; sourceTree = "<group>"; };
 		B817C7D82654220600462265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B817C7DD2654220700462265 /* mercadoFreeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mercadoFreeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B817C7E12654220700462265 /* mercadoFreeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mercadoFreeUITests.swift; sourceTree = "<group>"; };
@@ -82,6 +82,8 @@
 		B817C7FA2654535F00462265 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B817C7FC2654556A00462265 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		B817C7FE265455BC00462265 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B84A5CC9265D309A00CF6D9A /* ProductDetailsViewControllerPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewControllerPresenterTest.swift; sourceTree = "<group>"; };
+		B84A5CCB265D31E200CF6D9A /* MainViewControllerPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerPresenterTest.swift; sourceTree = "<group>"; };
 		B8C0151626570685009684CD /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		B8C015182657F3B4009684CD /* NetworkingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
 		B8C0151B2657F3F9009684CD /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
@@ -177,9 +179,10 @@
 		B817C7D52654220600462265 /* mercadoFreeTests */ = {
 			isa = PBXGroup;
 			children = (
-				B817C7D62654220600462265 /* mercadoFreeTests.swift */,
 				B817C7D82654220600462265 /* Info.plist */,
 				B8C015182657F3B4009684CD /* NetworkingTest.swift */,
+				B84A5CC9265D309A00CF6D9A /* ProductDetailsViewControllerPresenterTest.swift */,
+				B84A5CCB265D31E200CF6D9A /* MainViewControllerPresenterTest.swift */,
 			);
 			path = mercadoFreeTests;
 			sourceTree = "<group>";
@@ -483,8 +486,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B817C7D72654220600462265 /* mercadoFreeTests.swift in Sources */,
+				B84A5CCC265D31E200CF6D9A /* MainViewControllerPresenterTest.swift in Sources */,
 				B8C015192657F3B4009684CD /* NetworkingTest.swift in Sources */,
+				B84A5CCA265D309A00CF6D9A /* ProductDetailsViewControllerPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

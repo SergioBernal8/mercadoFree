@@ -21,14 +21,14 @@ class MainViewControllerPresenter: MainViewControllerPresenterInterface {
     private var productRepository: ProductRepository
     private var allProducts = [ProductForCell]()
     
-    var cancellables = [AnyCancellable]()
+    private var cancellables = [AnyCancellable]()
     
     init(viewInterface: MainViewControllerInterface?, productRepository: ProductRepository) {
         self.viewInterface = viewInterface
         self.productRepository = productRepository
     }
     
-    func makeProductsRequest(for query: String) {
+    private func makeProductsRequest(for query: String) {
         
         self.viewInterface?.displayLoadingIndicator()
         productRepository.getProducts(for: query).receive(on: DispatchQueue.main)
