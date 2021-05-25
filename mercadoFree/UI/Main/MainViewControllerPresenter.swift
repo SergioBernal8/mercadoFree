@@ -50,7 +50,11 @@ class MainViewControllerPresenter: MainViewControllerPresenterInterface {
             }
         } receiveValue: { products in
             self.allProducts.append(contentsOf: products.map{ ProductForCell(productWithImage: $0) })
-            self.viewInterface?.displayProducts()
+            if self.allProducts.count == 0 {
+                self.viewInterface?.displayErrorAlert(with: "No products found!")
+            } else {
+                self.viewInterface?.displayProducts()
+            }
         }.store(in: &cancellables)
     }
 }

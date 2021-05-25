@@ -107,7 +107,8 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (presenter?.getProductCount() ?? 0) - 1 == indexPath.row {
+        let productCount = presenter?.getProductCount() ?? 0
+        if productCount > 0 && productCount - 1 == indexPath.row  {
             presenter?.getNextProducts()
         }
     }
